@@ -4,7 +4,7 @@ Specifically, Combines Fourier series to produce square, triangle, and sawtooth 
 using Karplus-Strong string synthesis to model a plucked string.
 The WAV outputs are included in the repository.
 
-![Fourier](images/KarplusStong.png?raw=true "Fourier Synthesis")
+![Fourier](images/Additive.png?raw=true "Fourier Synthesis")
 
-![Karplus-Strong](images/Additive.png?raw=true "Karplus-Strong Physical Modeling")
+![Karplus-Strong](images/KarplusStong.png?raw=true "Karplus-Strong Physical Modeling")
 
