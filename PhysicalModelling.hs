@@ -131,12 +131,14 @@ sawWave dur pch vol params =
        osc3 <- osc sineTable 0 -< freq*3
        osc4 <- osc sineTable 0 -< freq*4
        osc5 <- osc sineTable 0 -< freq*5
+       osc6 <- osc sineTable 0 -< freq*6
        env1 <- envLineSeg [0, 1.0, 0, 0] [0.05,1,100] -< ()
        env2 <- envLineSeg [0, 0.5, 0, 0] [0.05,2,100] -< () 
        env3 <- envLineSeg [0, 0.33, 0, 0] [0.05,2,100] -< ()
        env4 <- envLineSeg [0, 0.25, 0, 0] [0.05,2,100] -< ()
        env5 <- envLineSeg [0, 0.2, 0, 0] [0.05,2,100] -< ()
-       let partials = ((osc1*env1) + (osc2*env2) + (osc3*env3) + (osc4*env4) + (osc5*env5)) / 5
+       env6 <- envLineSeg [0, 0.12, 0, 0] [0.05,2,100] -< ()
+       let partials = ((osc1*env1) + (osc2*env2) + (osc3*env3) + (osc4*env4) + (osc5*env5) + (osc6*env6)) / 6
        rec saw <- delayLine (1/freq)   -< effect
            x   <- delayLine (1/freq/2) -< partials + saw*0.4
            effect <- filterLowPassBW -< (x-x*x*x + saw*0.4, 2000)
